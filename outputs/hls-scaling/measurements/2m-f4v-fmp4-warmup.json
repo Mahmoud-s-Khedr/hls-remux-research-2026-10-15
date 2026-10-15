@@ -1,0 +1,29 @@
+{
+  "returncode": 0,
+  "wall_seconds": 0.24877550900009737,
+  "user_cpu_seconds": 0.190078,
+  "system_cpu_seconds": 0.087006,
+  "cpu_seconds": 0.277084,
+  "average_cpu_percent_one_core": 111.37913097381767,
+  "average_cpu_percent_host": 9.28159424781814,
+  "peak_rss_bytes": 82673664,
+  "major_faults": 0,
+  "minor_faults": 12228,
+  "voluntary_context_switches": 1084,
+  "involuntary_context_switches": 72,
+  "filesystem_input_blocks": 0,
+  "filesystem_output_blocks": 76648,
+  "io": {
+    "rchar": 39582666,
+    "wchar": 39187984,
+    "syscr": 1233,
+    "syscw": 159,
+    "read_bytes": 0,
+    "write_bytes": 39243776,
+    "cancelled_write_bytes": 0
+  },
+  "post_exit_fsync_seconds": 0.07616755399976682,
+  "completion_with_fsync_seconds": 0.3249430629998642,
+  "output_file_count": 21,
+  "output_bytes": 39187984
+}

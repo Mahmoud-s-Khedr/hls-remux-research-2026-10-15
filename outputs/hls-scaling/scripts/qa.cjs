@@ -1,0 +1,23 @@
+const fs=require('fs'),path=require('path');
+const {chromium}=require('/home/mk/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:'/home/mk/.cache/ms-playwright/chromium-1248/chrome-linux64/chrome',args:['--autoplay-policy=no-user-gesture-required']});
+ const page=await browser.newPage({viewport:{width:1450,height:1600}});const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.goto('http://127.0.0.1:8765/outputs/hls-scaling/report.html');
+ await page.waitForFunction(()=>document.querySelectorAll('#matrix tr').length===168);
+ const rows=await page.locator('#matrix tr').count(),choices=await page.locator('#choice option').count();
+ const images=await page.locator('img').evaluateAll(xs=>xs.every(x=>x.complete&&x.naturalWidth>0));
+ await page.locator('#duration').selectOption({label:'Full: 10:34.6'});
+ await page.locator('#container').selectOption({label:'MP4 (standard)'});
+ await page.locator('#kind').selectOption('fmp4');
+ const filtered=await page.locator('#matrix tr').count();
+ await page.locator('#choice').selectOption('durations/full/hls/mp4/fmp4/playlist.m3u8');
+ await page.locator('#load').click();await page.waitForFunction(()=>document.querySelector('video').readyState>=2);
+ await page.locator('video').evaluate(v=>{v.muted=true;v.currentTime=300;});
+ await page.waitForFunction(()=>document.querySelector('video').readyState>=2&&document.querySelector('video').currentTime>=300);
+ const video=await page.locator('video').evaluate(v=>({width:v.videoWidth,height:v.videoHeight,duration:v.duration,time:v.currentTime,error:v.error?.message||null}));
+ await page.screenshot({path:path.join(__dirname,'report-preview.png')});
+ const result={rows,choices,images,filtered,video,pageErrors:errors,passed:rows===168&&choices===144&&images&&filtered===1&&video.width===1920&&!video.error&&!errors.length};
+ fs.writeFileSync(path.resolve(__dirname,'../../outputs/hls-scaling/report-qa.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+ await browser.close();if(!result.passed)process.exitCode=1;
+})().catch(e=>{console.error(e);process.exitCode=1;});

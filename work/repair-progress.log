@@ -1,0 +1,27 @@
+ADJUSTED ts fmp4 True
+ADJUSTED m2ts fmp4 True
+ADJUSTMENT VALIDATION ERROR avi mpegts [vost#0:0/rawvideo @ 0x561cc7f21740] Non-monotonic DTS; previous: 898, current: 897; Error submitting a packet to the muxer: Invalid argument
+[out#0/framemd5 @ 0x561cc7f7a2c0] Error muxing a packet
+[out#0/framemd5 @ 0x561cc7f7a2c0] Task finished with error code: -22 (Invalid argument)
+[out#0/framemd5 @ 0x561cc7f7a2c0] Terminating thread with return code -22 (Invalid argument)
+
+ADJUSTMENT VALIDATION ERROR avi fmp4 [vost#0:0/rawvideo @ 0x564c64380dc0] Non-monotonic DTS; previous: 898, current: 897; Error submitting a packet to the muxer: Invalid argument
+[out#0/framemd5 @ 0x564c644b2080] Error muxing a packet
+[out#0/framemd5 @ 0x564c644b2080] Task finished with error code: -22 (Invalid argument)
+[out#0/framemd5 @ 0x564c644b2080] Terminating thread with return code -22 (Invalid argument)
+
+ADJUSTMENT FAILED asf mpegts [hls @ 0x55ba1c9016c0] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mpegts @ 0x55ba1c9f9040] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mpegts @ 0x55ba1c9f9040] first pts and dts value must be set
+[vost#0:0/copy @ 0x55ba1c902440] Error submitting a packet to the muxer: Invalid data found when processing input
+    Last message repeated 1 times
+[out#0/hls @ 0x55ba1c832480] Error muxing a packet
+[out#0/hls @ 0x55ba1c832480] Task finished with error code: -1094995529 (Invalid data found when processing input)
+[out#0/hls @ 0x55ba1c832480] Terminating thread with return code -1094995529 (Invalid data found when processing input)
+
+ADJUSTMENT VALIDATION ERROR asf fmp4 [in#0 @ 0x5558ef3b54c0] Cannot get correct #EXTINF value of segment /home/mk/Documents/Codex/2026-10-15/wha/outputs/hls-benchmark/hls/asf/fmp4/segment_000.m4s, set to default value to 1ms.
+[vost#0:0/rawvideo @ 0x5558ef44e280] Non-monotonic DTS; previous: 899, current: 898; Error submitting a packet to the muxer: Invalid argument
+[out#0/framemd5 @ 0x5558ef57f540] Error muxing a packet
+[out#0/framemd5 @ 0x5558ef57f540] Task finished with error code: -22 (Invalid argument)
+[out#0/framemd5 @ 0x5558ef57f540] Terminating thread with return code -22 (Invalid argument)
+

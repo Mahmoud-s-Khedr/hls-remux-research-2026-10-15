@@ -1,0 +1,616 @@
+{
+  "browser": "156.0.8078.4",
+  "player": "hls.js 1.6.13",
+  "playbackRate": 1,
+  "preload": true,
+  "tests": [
+    {
+      "container": "mp4_faststart",
+      "kind": "mpegts",
+      "playlist": "hls/mp4_faststart/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 13
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mp4",
+      "kind": "mpegts",
+      "playlist": "hls/mp4/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 13
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mp4_faststart",
+      "kind": "fmp4",
+      "playlist": "hls/mp4_faststart/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 14
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mp4",
+      "kind": "fmp4",
+      "playlist": "hls/mp4/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 12
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mov",
+      "kind": "mpegts",
+      "playlist": "hls/mov/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 13
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mov",
+      "kind": "fmp4",
+      "playlist": "hls/mov/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 12
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mkv",
+      "kind": "mpegts",
+      "playlist": "hls/mkv/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.122,
+      "duration": 30.122,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 15
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mkv",
+      "kind": "fmp4",
+      "playlist": "hls/mkv/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.101,
+      "duration": 30.101,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 906,
+        "droppedVideoFrames": 43
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "flv",
+      "kind": "mpegts",
+      "playlist": "hls/flv/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.122,
+      "duration": 30.122,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 15
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "f4v",
+      "kind": "mpegts",
+      "playlist": "hls/f4v/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 14
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "flv",
+      "kind": "fmp4",
+      "playlist": "hls/flv/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.101,
+      "duration": 30.101,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 906,
+        "droppedVideoFrames": 27
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "f4v",
+      "kind": "fmp4",
+      "playlist": "hls/f4v/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 14
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "3gp",
+      "kind": "mpegts",
+      "playlist": "hls/3gp/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 10
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "3g2",
+      "kind": "mpegts",
+      "playlist": "hls/3g2/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 9
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "3gp",
+      "kind": "fmp4",
+      "playlist": "hls/3gp/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 9
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "3g2",
+      "kind": "fmp4",
+      "playlist": "hls/3g2/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 9
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "nut",
+      "kind": "mpegts",
+      "playlist": "hls/nut/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 0
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "nut",
+      "kind": "fmp4",
+      "playlist": "hls/nut/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 0
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "m2ts",
+      "kind": "mpegts",
+      "playlist": "hls/m2ts/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 15
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "ts",
+      "kind": "mpegts",
+      "playlist": "hls/ts/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 13
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "m2ts",
+      "kind": "fmp4",
+      "playlist": "hls/m2ts/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 14
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "ts",
+      "kind": "fmp4",
+      "playlist": "hls/ts/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 14
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "asf",
+      "kind": "fmp4",
+      "playlist": "hls/asf/fmp4/playlist.m3u8",
+      "passed": false,
+      "error": "Error: Timeout at loading",
+      "stage": "loading",
+      "events": [],
+      "errors": []
+    },
+    {
+      "container": "avi",
+      "kind": "mpegts",
+      "playlist": "hls/avi/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.037333,
+      "duration": 30.037333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 961,
+        "droppedVideoFrames": 180
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "avi",
+      "kind": "fmp4",
+      "playlist": "hls/avi/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.037333,
+      "duration": 30.037333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 211
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mp4_fragmented",
+      "kind": "mpegts",
+      "playlist": "hls/mp4_fragmented/mpegts/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.121333,
+      "duration": 30.121333,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 958,
+        "droppedVideoFrames": 3
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    },
+    {
+      "container": "mp4_fragmented",
+      "kind": "fmp4",
+      "playlist": "hls/mp4_fragmented/fmp4/playlist.m3u8",
+      "ended": true,
+      "currentTime": 30.099999,
+      "duration": 30.099999,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "totalVideoFrames": 905,
+        "droppedVideoFrames": 6
+      },
+      "events": [
+        "fully-buffered",
+        "seeked-to-18s",
+        "seeked-to-start",
+        "playing"
+      ],
+      "errors": [],
+      "mediaError": null,
+      "passed": true
+    }
+  ]
+}

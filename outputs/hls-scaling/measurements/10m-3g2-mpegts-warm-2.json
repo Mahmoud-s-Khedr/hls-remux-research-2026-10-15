@@ -1,0 +1,70 @@
+{
+  "returncode": 0,
+  "wall_seconds": 3.060029262000171,
+  "started_monotonic": 3221.7012977,
+  "exited_monotonic": 3224.761326962,
+  "user_cpu_seconds": 0.5137229999999999,
+  "system_cpu_seconds": 0.31734,
+  "cpu_seconds": 0.8310629999999999,
+  "average_cpu_percent_one_core": 27.158661857265386,
+  "average_cpu_percent_host": 2.263221821438782,
+  "peak_rss_bytes": 92012544,
+  "major_faults": 0,
+  "minor_faults": 13044,
+  "voluntary_context_switches": 4106,
+  "involuntary_context_switches": 221,
+  "filesystem_input_blocks": 0,
+  "filesystem_output_blocks": 487312,
+  "io": {
+    "rchar": 242204734,
+    "wchar": 249274457,
+    "syscr": 6252,
+    "syscw": 1000,
+    "read_bytes": 0,
+    "write_bytes": 249503744,
+    "cancelled_write_bytes": 0
+  },
+  "host_before": {
+    "cpu_ticks": [
+      407718,
+      66015,
+      125829,
+      3142996,
+      120110,
+      30829,
+      11895,
+      0
+    ],
+    "available_memory_bytes": 24075997184,
+    "load_average": [
+      2.96435546875,
+      3.12890625,
+      2.57861328125
+    ]
+  },
+  "host_after": {
+    "cpu_ticks": [
+      407815,
+      66227,
+      125929,
+      3145813,
+      120573,
+      30840,
+      11901,
+      0
+    ],
+    "available_memory_bytes": 24120037376,
+    "load_average": [
+      2.96435546875,
+      3.12890625,
+      2.57861328125
+    ]
+  },
+  "host_busy_cpu_percent": 11.49487317862925,
+  "host_iowait_percent": 12.493254182406908,
+  "post_exit_fsync_seconds": 1.061098622999907,
+  "completion_with_fsync_seconds": 4.121127885000078,
+  "flushed_monotonic": 3225.822949481,
+  "output_file_count": 96,
+  "output_bytes": 249274457
+}

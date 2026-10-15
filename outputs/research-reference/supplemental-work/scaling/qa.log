@@ -1,0 +1,15 @@
+{
+  "rows": 168,
+  "choices": 144,
+  "images": true,
+  "filtered": 1,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 634.5333220000002,
+    "time": 300,
+    "error": null
+  },
+  "pageErrors": [],
+  "passed": true
+}

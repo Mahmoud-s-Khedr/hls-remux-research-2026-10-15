@@ -1,0 +1,11 @@
+[h264 @ 0x55bc115eb280] missing picture in access unit with size 6
+    Last message repeated 39 times
+[h264 @ 0x55bc116787c0] no frame!
+[vist#0:0/h264 @ 0x55bc11671fc0] [dec:h264 @ 0x55bc1167eb80] Decoding error: Invalid data found when processing input
+[vist#0:0/h264 @ 0x55bc11671fc0] [dec:h264 @ 0x55bc1167eb80] Error processing packet in decoder: Invalid data found when processing input
+[vist#0:0/h264 @ 0x55bc11671fc0] [dec:h264 @ 0x55bc1167eb80] Task finished with error code: -1094995529 (Invalid data found when processing input)
+[vist#0:0/h264 @ 0x55bc11671fc0] [dec:h264 @ 0x55bc1167eb80] Terminating thread with return code -1094995529 (Invalid data found when processing input)
+[vost#0:0/rawvideo @ 0x55bc1168fd40] [enc:rawvideo @ 0x55bc115edc00] Could not open encoder before EOF
+[vost#0:0/rawvideo @ 0x55bc1168fd40] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/rawvideo @ 0x55bc1168fd40] Terminating thread with return code -22 (Invalid argument)
+[out#0/framemd5 @ 0x55bc115ed380] Nothing was written into output file, because at least one of its streams received no packets.

@@ -1,0 +1,8 @@
+[hls @ 0x55915b8e75c0] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mpegts @ 0x55915b9def40] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mpegts @ 0x55915b9def40] first pts and dts value must be set
+[vost#0:0/copy @ 0x55915b8e8340] Error submitting a packet to the muxer: Invalid data found when processing input
+    Last message repeated 1 times
+[out#0/hls @ 0x55915b818400] Error muxing a packet
+[out#0/hls @ 0x55915b818400] Task finished with error code: -1094995529 (Invalid data found when processing input)
+[out#0/hls @ 0x55915b818400] Terminating thread with return code -1094995529 (Invalid data found when processing input)

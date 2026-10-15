@@ -1,0 +1,5 @@
+[in#0 @ 0x55e8d6d694c0] Cannot get correct #EXTINF value of segment /home/mk/Documents/Codex/2026-10-15/wha/outputs/hls-benchmark/hls/avi/fmp4/segment_000.m4s, set to default value to 1ms.
+[vost#0:0/rawvideo @ 0x55e8d6e02240] Non-monotonic DTS; previous: 900, current: 899; Error submitting a packet to the muxer: Invalid argument
+[out#0/framemd5 @ 0x55e8d6f33540] Error muxing a packet
+[out#0/framemd5 @ 0x55e8d6f33540] Task finished with error code: -22 (Invalid argument)
+[out#0/framemd5 @ 0x55e8d6f33540] Terminating thread with return code -22 (Invalid argument)

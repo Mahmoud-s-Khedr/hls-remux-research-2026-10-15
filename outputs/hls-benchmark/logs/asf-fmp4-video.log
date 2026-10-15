@@ -1,0 +1,12 @@
+[in#0 @ 0x559825de54c0] Cannot get correct #EXTINF value of segment /home/mk/Documents/Codex/2026-10-15/wha/outputs/hls-benchmark/hls/asf/fmp4/segment_000.m4s, set to default value to 1ms.
+[NULL @ 0x559825de9fc0] missing picture in access unit with size 6
+    Last message repeated 150 times
+[h264 @ 0x559825e85880] no frame!
+[vist#0:0/h264 @ 0x559825fbf4c0] [dec:h264 @ 0x559825fc2400] Decoding error: Invalid data found when processing input
+[vist#0:0/h264 @ 0x559825fbf4c0] [dec:h264 @ 0x559825fc2400] Error processing packet in decoder: Invalid data found when processing input
+[vist#0:0/h264 @ 0x559825fbf4c0] [dec:h264 @ 0x559825fc2400] Task finished with error code: -1094995529 (Invalid data found when processing input)
+[vist#0:0/h264 @ 0x559825fbf4c0] [dec:h264 @ 0x559825fc2400] Terminating thread with return code -1094995529 (Invalid data found when processing input)
+[vost#0:0/rawvideo @ 0x559825e863c0] [enc:rawvideo @ 0x559825dfc8c0] Could not open encoder before EOF
+[vost#0:0/rawvideo @ 0x559825e863c0] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/rawvideo @ 0x559825e863c0] Terminating thread with return code -22 (Invalid argument)
+[out#0/framemd5 @ 0x559825fb33c0] Nothing was written into output file, because at least one of its streams received no packets.

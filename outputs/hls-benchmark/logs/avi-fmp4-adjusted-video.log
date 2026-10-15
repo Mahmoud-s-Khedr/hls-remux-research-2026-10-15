@@ -1,0 +1,4 @@
+[vost#0:0/rawvideo @ 0x564c64380dc0] Non-monotonic DTS; previous: 898, current: 897; Error submitting a packet to the muxer: Invalid argument
+[out#0/framemd5 @ 0x564c644b2080] Error muxing a packet
+[out#0/framemd5 @ 0x564c644b2080] Task finished with error code: -22 (Invalid argument)
+[out#0/framemd5 @ 0x564c644b2080] Terminating thread with return code -22 (Invalid argument)

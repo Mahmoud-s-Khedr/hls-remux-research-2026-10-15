@@ -1,0 +1,4 @@
+[hls @ 0x563e1a2c46c0] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mp4 @ 0x563e1a3bc040] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mp4 @ 0x563e1a3bc040] pts has no value
+    Last message repeated 1799 times

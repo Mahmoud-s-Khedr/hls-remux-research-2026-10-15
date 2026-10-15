@@ -1,0 +1,10 @@
+[h264 @ 0x5635768cf300] missing picture in access unit with size 6
+    Last message repeated 39 times
+[hls @ 0x563576973b40] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mpegts @ 0x56357695da00] Timestamps are unset in a packet for stream 0. This is deprecated and will stop working in the future. Fix your code to set the timestamps properly
+[mpegts @ 0x56357695da00] first pts and dts value must be set
+[aost#0:1/copy @ 0x563576962bc0] Error submitting a packet to the muxer: Invalid data found when processing input
+    Last message repeated 1 times
+[out#0/hls @ 0x5635768d1400] Error muxing a packet
+[out#0/hls @ 0x5635768d1400] Task finished with error code: -1094995529 (Invalid data found when processing input)
+[out#0/hls @ 0x5635768d1400] Terminating thread with return code -1094995529 (Invalid data found when processing input)
