@@ -6,7 +6,7 @@ Reviewed 15 October 2026 by Claude (Claude Code), from the reports, the raw `res
 
 The correctness work is excellent and trustworthy. The timing work is careful in method but was run on a disk that was filling up, so most wall-clock numbers in the main matrix describe that disk's state more than FFmpeg's remux cost. Use CPU seconds, RSS, I/O bytes, and the fresh-output control for planning; treat the main-matrix wall times for ≥2-minute inputs as unreliable.
 
-*(Revised 16 October 2026: the main cause of the noisy wall times is more likely that the matrix overwrote its own output files, not disk fullness, and the fresh-output 0.7 s is not a usable completion time. See the [Addendum](#addendum-16-october-2026-overwrite-effect).)*
+*(Revised 16 October 2026: the noisy wall times come from slow storage in that session **combined with** the matrix overwriting its own output files, which moved disk writes into FFmpeg's measured time. The fresh-output 0.7 s is not a usable completion time. A paired rerun on healthy storage measured ~1.1–1.3 s including fsync. See the [Addendum](#addendum-16-october-2026-overwrite-effect).)*
 
 ## What is solid
 
@@ -62,17 +62,19 @@ Medians for every run that wrote ≥200 MB (10-minute and full-length cases), re
 | Fresh-output control (end of session) | 24 | new | **0.69** | 0.90 | 7.22 | 7.91 |
 
 - In **54 of 54** cases, the warm-up was faster than that same case's median overwrite run, while CPU seconds were similar.
-- New-file runs were fast both at the **start** of the session (warm-ups, most free space) and at the **end** (fresh control, least free space). Disk fullness therefore cannot explain the 5× gap. Overwriting can.
+- New-file runs were fast to exit both at the **start** of the session (warm-ups, most free space) and at the **end** (fresh control, least free space), so the *exit-time* gap follows the overwrite pattern rather than free space alone.
 - When FFmpeg's time was short, fsync was long, and the reverse. The data-to-disk cost did not disappear; it moved. Exit + fsync was **2.8–7.9 s in every mode**.
 
-### Likely mechanism (not yet confirmed)
+*(Earlier wording of this addendum said disk fullness "cannot explain" the gap. The rerun below shows that was too strong: the gap needs both the overwrite pattern and slow storage.)*
 
-When Btrfs truncates an existing file and rewrites it, it starts writeback as the file is closed, similar to ext4's `auto_da_alloc`. That puts disk-write time inside FFmpeg's measured run. Newly created files stay in the page cache until the explicit fsync. A paired rerun to test this is planned (see below).
+### Mechanism (confirmed by the rerun)
+
+When Btrfs truncates an existing file and rewrites it, it starts writeback as the file is closed, similar to ext4's `auto_da_alloc`. That puts disk-write time inside FFmpeg's measured run. Newly created files stay in the page cache until the explicit fsync. In the rerun, overwritten outputs never had more than ~9 MiB dirty during FFmpeg's run; new outputs built up ~235 MiB that fsync then had to write.
 
 ### Revisions to this review
 
-- **Issue 1:** disk fullness and sustained writes may still explain the slow upward drift across rounds (median fsync also rises, 0.38 → 0.74 s), but the main reason the matrix wall times are noisy and slow is the overwrite pattern. The conclusion "don't trust the main-matrix wall times" is unchanged.
-- **Advice replaced:** the fresh-output 0.7 s measures only when FFmpeg exits, before the data is on disk. It is **not** a realistic per-job time. For capacity planning, use **exit + fsync** (or exit + upload), measured on the target storage. On this laptop that was about 3–8 s for a ~250 MB output, i.e. storage-bound.
+- **Issue 1:** both explanations hold, in combination. Storage in that session was slow: the same jobs took 4.5–7.9 s including fsync, against 1.1–1.3 s on the same laptop with 99 GiB free. That is likely because of fullness and/or ~100 GiB of sustained writes; the rerun can't separate the two. The overwrite pattern decided *where* that slow write time showed up, putting it inside FFmpeg's exit time. The conclusion "don't trust the main-matrix wall times" is unchanged.
+- **Advice replaced:** the fresh-output 0.7 s measures only when FFmpeg exits, before the data is on disk. It is **not** a realistic per-job time. For capacity planning, use **exit + fsync** (or exit + upload), measured on the target storage. On this laptop that was ~1.1–1.3 s for a ~250 MB output on healthy storage and 3–8 s on the degraded volume. Storage state dominates.
 - **Unchanged:** CPU seconds (~0.8–1.0 s per output style), peak RSS (~90 MiB), I/O byte volumes and all correctness conclusions.
 
 ### Further caveats
@@ -83,4 +85,13 @@ When Btrfs truncates an existing file and rewrites it, it starts writeback as th
 
 ### Step 2 results
 
-Pending: a paired rerun on the same laptop (full-length MP4 → TS and fMP4, new folder vs overwritten folder, 10 repeats each, randomised order) to confirm or rule out the overwrite explanation. Results will be in `outputs/hls-overwrite-rerun/`.
+Paired rerun on the same laptop and Btrfs volume, now with 99 GiB free (58% used), `powersave` governor, FFmpeg 8.1.3. Full-length MP4 → TS and fMP4, new folder vs overwritten folder, 10 repeats each, in seeded random order. All 40 outputs were byte-identical to the original study's. Full write-up: `outputs/hls-overwrite-rerun/report.md`.
+
+| Output | FFmpeg exit s, new / overwrite | Exit + fsync s, new / overwrite | Overwrite − new, exit (paired median) |
+|---|---|---|---|
+| TS | 0.93 / 1.08 | 1.33 / 1.25 | +0.07 s (slower in 7/10) |
+| fMP4 | 0.85 / 0.94 | 1.28 / 1.10 | +0.11 s (slower in 8/10) |
+
+- On healthy storage, overwriting costs only ~0.1 s, matched by ~0.1 extra CPU seconds, so it is kernel work rather than waiting. Total time to durable completion is the same or slightly lower.
+- So the original ~3 s overwrite gap needed the slow storage of that session. The mechanism is confirmed by the dirty-page trace; its size was set by storage speed.
+- Limits: one laptop, Btrfs only, and the nearly full disk state was not reproduced. CPU seconds in the rerun (~1.0–1.3 s) were higher than in the original session (~0.8–0.9 s) for byte-identical work, for unknown reasons, so compare CPU figures within one session only.
