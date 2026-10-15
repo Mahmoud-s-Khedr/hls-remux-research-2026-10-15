@@ -5244,8 +5244,8 @@ ca66039e183e572a0e1fb6017903905b11282874b4e702ca0e1966eed5c9f9f8  ./outputs/rese
 bd9eb73ddec647bbb486c47316163042a9655a8483358c093121341d0dc080cf  ./outputs/research-reference/supplemental-work/source-about.html
 986095a604d7a831c6831ed72e6fce3ab937a46530055ad1ec151bd9ae5963b0  ./outputs/research-reference/supplemental-work/timing-audit.log
 6013b6e61e9029a7dfbca012128e3d24386b1c57f09be586158250eb4c31adcb  ./outputs/research-reference/supplemental-work/timing-audit.py
-86af1db21297e29160e05bb7e84074e8180ac09fb2dc7d2ddcb791a5fb4f25cd  ./README.md
-70ceae38272a7ddb9c4bde86212487c4da6bfaadcdbaab5c438c73deb0f516fc  ./REVIEW.md
+990996c64b856d982440da8dda3e17baa8676a4ead55d14b58c8feacba370b6b  ./README.md
+10ed5f6d50bcbd8e46fb3ba47380b9320ef03b32008143bbb2d6fa78c1e4db00  ./REVIEW.md
 025564486cd19a0c82a197332eb54575d5e725719b42167f573171b3afbc128c  ./work/avi-check.m3u8
 807efa780a595c6f60c6f1d85d3da962889c1590815ef3a1d4b24ee99d67d057  ./work/benchmark-progress.log
 086654820aedce9374f91be7c85a6ff4a27325f02218f77f152c169535de1671  ./work/benchmark.py

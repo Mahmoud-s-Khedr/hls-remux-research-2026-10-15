@@ -11,6 +11,7 @@ Original workspace: `~/Documents/Codex/2026-10-15/wha` (may be deleted later).
 | `outputs/hls-scaling/report.html` | **Main report.** Open in a browser (tables and charts work offline; the video player needs the media, which is not kept). |
 | `outputs/hls-scaling/report.md` | Same report as Markdown. |
 | `REVIEW.md` | Independent review of the methodology and conclusions; read before reusing any number. |
+| `REVIEW.md` → Addendum (16 Oct) | Correction: main-matrix wall times are mostly an output-overwrite effect; plan on exit + fsync time, not 0.7 s. |
 | `outputs/research-reference/README.md` | Codex's index of every experiment (E1–E4, V1–V4) and where its evidence lives. |
 | `outputs/hls-benchmark/report.md` | Earlier 30-second baseline (different method; don't mix its timings with the scaling data). |
 | `outputs/hls-via-mp4/report.md` | Follow-up: AVI/ASF → MP4 → HLS, all eight routes rejected. |
