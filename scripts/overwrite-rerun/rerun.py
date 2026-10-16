@@ -1,16 +1,17 @@
 """Paired rerun: full-length standard MP4 -> HLS TS/fMP4, new output folder vs overwritten folder.
 
-Reuses outputs/hls-scaling/scripts/measure.py unchanged; command(), populate() and the
-reference/input preparation are copied from outputs/hls-scaling/scripts/run.py.
+Reuses scripts/scaling/measure.py unchanged; command(), populate() and the
+reference/input preparation are copied from scripts/scaling/run.py.
 Usage: python3 rerun.py prepare | run
 """
 import sys,os,json,time,subprocess,hashlib,random,shutil,platform,threading
 from pathlib import Path
 
-REPO=Path(__file__).resolve().parents[3]
-OUT=REPO/'outputs/hls-overwrite-rerun'
-MEASURE=REPO/'outputs/hls-scaling/scripts/measure.py'
-FRESH=REPO/'outputs/hls-scaling/fresh-output.json'
+REPO=Path(__file__).resolve().parents[2]
+OUT=REPO/'data/overwrite-rerun'
+LOGS=REPO/'logs/overwrite-rerun'
+MEASURE=REPO/'scripts/scaling/measure.py'
+FRESH=REPO/'data/scaling/fresh-output.json'
 MEDIA=Path(os.environ.get('HLS_RERUN_MEDIA',Path.home()/'Research/hls-rerun-media'))
 SOURCE_SHA='ae51005850b0ff757fe60c3dd7a12d754d3cd2397d87d939b55235e457f97658'
 BASE=['ffmpeg','-hide_banner','-nostdin','-y','-loglevel','warning']
@@ -18,12 +19,12 @@ KINDS=['mpegts','fmp4']
 REPEATS=10
 SEED=20261016
 SETTLE_SECONDS=2
-for d in ['logs','measurements','traces']:(OUT/d).mkdir(parents=True,exist_ok=True)
+for d in [LOGS,OUT/'traces',MEDIA/'measurements']:d.mkdir(parents=True,exist_ok=True)
 INPUT=MEDIA/'inputs/mp4.mp4'
 
 def run(args,log):
  p=subprocess.run(args,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
- (OUT/'logs'/log).write_bytes(p.stderr)
+ (LOGS/log).write_bytes(p.stderr)
  if p.returncode:raise RuntimeError(p.stderr.decode()[-2000:])
  return p
 
@@ -75,8 +76,8 @@ class Sampler(threading.Thread):
 def measure(kind,condition,repeat,folder,trace=False):
  populate(INPUT);os.sync();time.sleep(SETTLE_SECONDS)
  label=f'full-mp4-{kind}-{condition}-{repeat}'
- result=OUT/'measurements'/(label+'.json')
- spec={'command':command(INPUT,folder,kind),'log':str(OUT/'logs'/(label+'.log')),'folder':str(folder),'result':str(result)}
+ result=MEDIA/'measurements'/(label+'.json')
+ spec={'command':command(INPUT,folder,kind),'log':str(LOGS/(label+'.log')),'folder':str(folder),'result':str(result)}
  specpath=MEDIA/'measurement-spec.json';specpath.write_text(json.dumps(spec))
  s=Sampler() if trace else None
  if s:s.start()

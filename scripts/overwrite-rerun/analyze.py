@@ -1,8 +1,8 @@
-"""Summarise results.json and traces/ into analysis.json and report-tables.md."""
+"""Print the overwrite-rerun summary tables from data/overwrite-rerun/ (results.json and traces/)."""
 import json,statistics as st
 from pathlib import Path
 
-OUT=Path(__file__).resolve().parents[1]
+OUT=Path(__file__).resolve().parents[2]/'data/overwrite-rerun'
 R=json.loads((OUT/'results.json').read_text())
 runs=R['runs']
 METRICS=[('wall_seconds','FFmpeg exit s'),('cpu_seconds','CPU s'),('post_exit_fsync_seconds','fsync s'),('completion_with_fsync_seconds','Exit + fsync s')]
@@ -46,6 +46,4 @@ for p in sorted((OUT/'traces').glob('*.json')):
 e0,e1=R['environment_start'],R['environment_end']
 analysis['environment']={'governor':e0['governor'],'fstype':e0['fstype'],'free_gib_start':e0['disk_free_bytes']/2**30,
  'free_gib_end':e1['disk_free_bytes']/2**30,'used_pct_start':100*(1-e0['disk_free_bytes']/e0['disk_total_bytes']),'ffmpeg':e0['ffmpeg']}
-(OUT/'analysis.json').write_text(json.dumps(analysis,indent=2))
-(OUT/'report-tables.md').write_text('\n'.join(lines)+'\n')
 print('\n'.join(lines));print(json.dumps(analysis['environment'],indent=1))

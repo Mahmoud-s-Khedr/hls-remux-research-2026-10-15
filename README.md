@@ -1,32 +1,20 @@
-# H.264 → HLS remuxing research (15 October 2026)
+# Remux-first HLS: feasibility study (October 2026)
 
-Preserved evidence from a Codex session that measured how fast, and how correctly, FFmpeg 8.1.3 remuxes one H.264/AAC film (Big Buck Bunny, 1080p30) from 14 container layouts into HLS (TS and fMP4), at six lengths from 30 seconds to the full 10:34.
+Can a remux server make uploads watchable within seconds for premium users, by repackaging H.264/AAC into HLS without re-encoding, while the full 240p–1080p ladder encodes in the background?
 
-Original workspace: `~/Documents/Codex/2026-10-15/wha` (may be deleted later).
+**Yes, for H.264/AAC uploads in common containers, with an input gate and an output check.** About 1 CPU-second and under 100 MiB RAM per 10-minute 1080p file. ~1.2 s including fsync on healthy storage. Bit-exact output from 12 of 14 container types. AVI/ASF must go to the ladder. Time-to-watch is dominated by download/upload, not remuxing.
 
-## Start here
+**Read [`REPORT.md`](REPORT.md).** It has all results, tables, charts, the production design (input gate, output check, switching to the ladder) and the limits.
 
-| File | What it is |
+| | |
 |---|---|
-| `outputs/hls-scaling/report.html` | **Main report.** Open in a browser (tables and charts work offline; the video player needs the media, which is not kept). |
-| `outputs/hls-scaling/report.md` | Same report as Markdown. |
-| `REVIEW.md` | Independent review of the methodology and conclusions; read before reusing any number. |
-| `REVIEW.md` → Addendum (16 Oct) | Correction: main-matrix wall times reflect slow storage plus output overwriting; plan on exit + fsync time, not 0.7 s. |
-| `outputs/hls-overwrite-rerun/report.md` | 16 Oct paired rerun (new vs overwritten folders, healthy disk): ~1.1–1.3 s per 250 MB job including fsync. |
-| `outputs/research-reference/README.md` | Codex's index of every experiment (E1–E4, V1–V4) and where its evidence lives. |
-| `outputs/hls-benchmark/report.md` | Earlier 30-second baseline (different method; don't mix its timings with the scaling data). |
-| `outputs/hls-via-mp4/report.md` | Follow-up: AVI/ASF → MP4 → HLS, all eight routes rejected. |
+| [`REPORT.md`](REPORT.md) | Full report |
+| [`charts/`](charts/) | Resource scaling, completion time, CPU by container, memory, concurrency, overwrite vs new |
+| [`data/`](data/) | All measured data (JSON) and the 168 output playlists |
+| [`logs/`](logs/) | Every non-empty FFmpeg log |
+| [`scripts/`](scripts/) | Test harnesses and `report/build.py` (regenerates charts and tables) |
+| `MANIFEST.sha256` | `sha256sum -c MANIFEST.sha256` |
 
-## What is kept, and what is not
-
-Kept (≈45 MB): every report, `results.json` and other raw JSON, all 1,008+ per-run measurement records, every FFmpeg log, HLS playlists, charts, harness scripts (`outputs/*/scripts`, `work/scaling`), Codex's run notes, inventories and checksums, and Codex's `evidence.zip`.
-
-Not kept: video files (`.ts .m4s .mp4 .mkv .mov .flv .nut .avi .asf .m2ts .3gp .3g2 .f4v`) and the source download. They were ~30 GB and are regenerable:
-
-1. Download `https://download.blender.org/demo/movies/BBB/bbb_sunflower_1080p_30fps_normal.mp4.zip` and check the extracted MP4's SHA-256 is `ae51005850b0ff757fe60c3dd7a12d754d3cd2397d87d939b55235e457f97658`.
-2. Use FFmpeg **8.1.3** (other versions may produce different bytes); the exact commands are in `results.json` (`cases[].command`) and the scripts.
-3. Compare regenerated segments against `outputs/research-reference/inventory.json` and `outputs/hls-scaling/segment-validation-cache.json`.
-
-Integrity: when copied, all 5,242 files listed in Codex's `outputs/research-reference/SHA256SUMS.txt` that are present here matched byte-for-byte. `MANIFEST.sha256` covers every file in this folder; verify with `sha256sum -c MANIFEST.sha256`.
+Video files (~30 GB) are not kept; they regenerate byte-identically from the public source with FFmpeg 8.1.3 (REPORT.md, Appendix B). Earlier reports and intermediate files remain in git history (commit `5ddbc60` and earlier).
 
 Big Buck Bunny © 2008 Blender Foundation, CC BY 3.0.
